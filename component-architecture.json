@@ -1,0 +1,308 @@
+{
+  "componentArchitecture": {
+    "version": "1.0.0",
+    "description": "Vector Synergy Component Architecture following Atomic Design Pattern",
+    "lastUpdated": "2024",
+    "principles": {
+      "atomicDesign": {
+        "description": "Component hierarchy based on Atomic Design methodology",
+        "levels": {
+          "atoms": {
+            "description": "Basic building blocks - buttons, inputs, labels, icons",
+            "purpose": "Fundamental UI elements that cannot be broken down further",
+            "examples": ["ErrorBoundary", "Loading states", "Basic form elements"]
+          },
+          "molecules": {
+            "description": "Simple groups of atoms functioning together as a unit",
+            "purpose": "Reusable component combinations that serve a single purpose",
+            "examples": ["SearchBox", "FormField", "StatCard", "FeatureCard"]
+          },
+          "organisms": {
+            "description": "Complex UI components made of groups of molecules and atoms",
+            "purpose": "Distinct sections of interface that form the major parts of a page",
+            "examples": ["Header", "Hero sections", "Service grids", "Contact forms"]
+          },
+          "templates": {
+            "description": "Page-level objects that place components into a layout",
+            "purpose": "Define the overall page structure and component arrangement",
+            "examples": ["HomeTemplate", "AboutTemplate", "ContactTemplate"]
+          },
+          "pages": {
+            "description": "Specific instances of templates with actual content",
+            "purpose": "Final pages that users interact with",
+            "examples": ["HomePage", "AboutPage", "ContactPage"]
+          }
+        }
+      }
+    },
+    "currentStructure": {
+      "src/components/": {
+        "atoms/": {
+          "status": "minimal",
+          "files": ["ErrorBoundary.tsx"],
+          "needsExpansion": true
+        },
+        "molecules/": {
+          "status": "empty",
+          "files": [],
+          "needsExpansion": true
+        },
+        "organisms/": {
+          "status": "partial",
+          "structure": {
+            "shared": ["cta.tsx"],
+            "home/": ["hero.tsx", "about.tsx", "services.tsx", "stats.tsx", "featured.tsx", "testimonials.tsx"],
+            "about/": [],
+            "contact/": [],
+            "projects/": [],
+            "services/": []
+          },
+          "needsExpansion": true
+        },
+        "templates/": {
+          "status": "minimal", 
+          "files": ["homeTemplate.tsx"],
+          "needsExpansion": true
+        },
+        "layouts/": {
+          "status": "complete",
+          "files": ["ClientLayout.tsx", "Header.tsx", "Footer.tsx", "RootLayout.tsx"]
+        },
+        "ui/": {
+          "status": "good",
+          "description": "Shadcn UI components + custom UI components",
+          "files": ["button.tsx", "card.tsx", "input.tsx", "etc."]
+        }
+      }
+    },
+    "refactoringPlan": {
+      "phase1": {
+        "title": "Create Missing Templates",
+        "files": [
+          "src/components/templates/aboutTemplate.tsx",
+          "src/components/templates/contactTemplate.tsx", 
+          "src/components/templates/projectsTemplate.tsx",
+          "src/components/templates/servicesTemplate.tsx"
+        ]
+      },
+      "phase2": {
+        "title": "Extract Page Organisms",
+        "about": [
+          "src/components/organisms/about/hero.tsx",
+          "src/components/organisms/about/mission-vision.tsx",
+          "src/components/organisms/about/timeline.tsx",
+          "src/components/organisms/about/values.tsx",
+          "src/components/organisms/about/capabilities.tsx",
+          "src/components/organisms/about/location.tsx"
+        ],
+        "contact": [
+          "src/components/organisms/contact/hero.tsx",
+          "src/components/organisms/contact/contact-info.tsx",
+          "src/components/organisms/contact/contact-form.tsx",
+          "src/components/organisms/contact/location.tsx",
+          "src/components/organisms/contact/emergency.tsx"
+        ],
+        "projects": [
+          "src/components/organisms/projects/hero.tsx",
+          "src/components/organisms/projects/featured-projects.tsx",
+          "src/components/organisms/projects/additional-projects.tsx",
+          "src/components/organisms/projects/stats.tsx"
+        ],
+        "services": [
+          "src/components/organisms/services/hero.tsx",
+          "src/components/organisms/services/services-overview.tsx",
+          "src/components/organisms/services/detailed-services.tsx",
+          "src/components/organisms/services/process.tsx"
+        ]
+      },
+      "phase3": {
+        "title": "Create Reusable Molecules",
+        "files": [
+          "src/components/molecules/StatCard.tsx",
+          "src/components/molecules/FeatureCard.tsx",
+          "src/components/molecules/ProcessStep.tsx",
+          "src/components/molecules/ContactCard.tsx",
+          "src/components/molecules/TimelineItem.tsx",
+          "src/components/molecules/MetricCard.tsx"
+        ]
+      },
+      "phase4": {
+        "title": "Update Page Files",
+        "description": "Refactor page files to use templates instead of monolithic components"
+      }
+    },
+    "pageBreakdown": {
+      "about": {
+        "currentLines": 399,
+        "sections": [
+          {
+            "name": "Hero Section",
+            "lines": "109-157",
+            "organism": "about/hero.tsx",
+            "description": "About page hero with company story introduction"
+          },
+          {
+            "name": "Mission Vision Values",
+            "lines": "160-216", 
+            "organism": "about/mission-vision.tsx",
+            "description": "Three-column layout showing mission, vision, and purpose"
+          },
+          {
+            "name": "Company Timeline",
+            "lines": "219-258",
+            "organism": "about/timeline.tsx", 
+            "description": "Milestone timeline showing company journey since 2013"
+          },
+          {
+            "name": "Values Section",
+            "lines": "261-288",
+            "organism": "about/values.tsx",
+            "description": "Grid of company values with icons and descriptions"
+          },
+          {
+            "name": "Capabilities",
+            "lines": "291-333",
+            "organism": "about/capabilities.tsx",
+            "description": "Core capabilities and expertise listing"
+          },
+          {
+            "name": "Location & Contact",
+            "lines": "336-396",
+            "organism": "about/location.tsx",
+            "description": "Office location and facility information"
+          }
+        ]
+      },
+      "contact": {
+        "currentLines": 469,
+        "sections": [
+          {
+            "name": "Hero Section", 
+            "lines": "80-111",
+            "organism": "contact/hero.tsx",
+            "description": "Contact page hero with call-to-action"
+          },
+          {
+            "name": "Contact Information",
+            "lines": "114-153",
+            "organism": "contact/contact-info.tsx", 
+            "description": "Contact cards showing phone, email, LinkedIn, office"
+          },
+          {
+            "name": "Contact Form",
+            "lines": "156-356",
+            "organism": "contact/contact-form.tsx",
+            "description": "Comprehensive project inquiry form with additional info cards"
+          },
+          {
+            "name": "Location Section",
+            "lines": "359-438",
+            "organism": "contact/location.tsx",
+            "description": "Office location details and map placeholder"
+          },
+          {
+            "name": "Emergency Contact",
+            "lines": "441-466",
+            "organism": "contact/emergency.tsx",
+            "description": "Emergency contact section with urgent assistance info"
+          }
+        ]
+      },
+      "projects": {
+        "currentLines": 399,
+        "sections": [
+          {
+            "name": "Hero Section",
+            "lines": "134-166", 
+            "organism": "projects/hero.tsx",
+            "description": "Projects page hero showcasing engineering excellence"
+          },
+          {
+            "name": "Featured Projects",
+            "lines": "169-317",
+            "organism": "projects/featured-projects.tsx",
+            "description": "Detailed case studies with metrics and results"
+          },
+          {
+            "name": "Additional Projects", 
+            "lines": "320-342",
+            "organism": "projects/additional-projects.tsx",
+            "description": "Grid of additional project cards"
+          },
+          {
+            "name": "Project Stats",
+            "lines": "345-366",  
+            "organism": "projects/stats.tsx",
+            "description": "Company statistics and achievements"
+          }
+        ]
+      },
+      "services": {
+        "currentLines": 406,
+        "sections": [
+          {
+            "name": "Hero Section",
+            "lines": "191-223",
+            "organism": "services/hero.tsx", 
+            "description": "Services page hero with comprehensive solutions focus"
+          },
+          {
+            "name": "Services Overview",
+            "lines": "226-246",
+            "organism": "services/services-overview.tsx",
+            "description": "Grid of service cards showing all offerings"
+          },
+          {
+            "name": "Detailed Services",
+            "lines": "249-329",
+            "organism": "services/detailed-services.tsx",
+            "description": "In-depth service descriptions with features and industries"
+          },
+          {
+            "name": "Process Section", 
+            "lines": "332-370",
+            "organism": "services/process.tsx",
+            "description": "5-step process workflow visualization"
+          }
+        ]
+      }
+    },
+    "namingConventions": {
+      "files": {
+        "templates": "PascalCase + Template suffix (e.g., AboutTemplate.tsx)",
+        "organisms": "kebab-case (e.g., hero.tsx, contact-info.tsx)",
+        "molecules": "PascalCase (e.g., StatCard.tsx, FeatureCard.tsx)",
+        "atoms": "PascalCase (e.g., ErrorBoundary.tsx)"
+      },
+      "components": {
+        "templates": "Export default function with Template suffix",
+        "organisms": "Export default function with descriptive name", 
+        "molecules": "Export default function with component name",
+        "atoms": "Export default function with component name"
+      }
+    },
+    "dependencies": {
+      "internal": [
+        "@/components/ui/*",
+        "@/components/atoms/*", 
+        "@/components/molecules/*",
+        "@/components/organisms/*"
+      ],
+      "external": [
+        "lucide-react",
+        "next/link",
+        "next/metadata",
+        "react"
+      ]
+    },
+    "bestPractices": {
+      "separation": "Each organism should handle one main section/responsibility",
+      "reusability": "Extract common patterns into molecules",
+      "props": "Use TypeScript interfaces for all component props",
+      "imports": "Use absolute imports with @ alias",
+      "exports": "Use default exports for components",
+      "styling": "Use Tailwind CSS with consistent design system",
+      "accessibility": "Ensure WCAG AA compliance in all components"
+    }
+  }
+}

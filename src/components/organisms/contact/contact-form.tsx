@@ -1,0 +1,232 @@
+import { Send, Clock, CheckCircle, Users, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import React from 'react';
+
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { SectionHeading } from '@/components/ui/section-heading';
+
+/**
+ * Contact form section for Contact page
+ * Displays comprehensive project inquiry form with additional information cards
+ */
+export function ContactForm() {
+  const officeHours = [
+    { day: 'Monday - Friday', hours: '8:00 AM - 6:00 PM EST' },
+    { day: 'Saturday', hours: '9:00 AM - 2:00 PM EST' },
+    { day: 'Sunday', hours: 'Closed' },
+    { day: 'Emergency Support', hours: '24/7 Available' },
+  ];
+
+  const serviceAreas = [
+    'Product Design & Development',
+    'CAD Modeling & Simulation',
+    'Prototyping & Testing',
+    'Manufacturing Support',
+    'Process Optimization',
+    'Quality Assurance',
+  ];
+
+  return (
+    <section
+      id="contact-form"
+      className="py-24 sm:py-32 min-h-[100dvh] bg-gradient-to-br from-muted/30 to-accent isolate relative animate-fade-in flex items-center justify-center"
+    >
+      {/* <Image
+        src="/images/layered-slants.svg"
+        alt=""
+        width={1000}
+        height={100}
+        className="w-full object-cover mb-24 sm:mb-32 -mt-1"
+        loading="lazy"
+      /> */}
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+          {/* Form */}
+          <div className="space-y-8">
+            <SectionHeading
+              subtitle="Send Us a Message"
+              title="Start Your Project Today"
+              description="Tell us about your engineering challenges and we'll get back to you within 24 hours."
+              centered={false}
+              // textColor="text-white"
+            />
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Send className="h-5 w-5 text-primary" />
+                  Project Inquiry Form
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="firstName">First Name *</Label>
+                    <Input
+                      id="firstName"
+                      type="text"
+                      placeholder="Enter your first name"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="lastName">Last Name *</Label>
+                    <Input id="lastName" type="text" placeholder="Enter your last name" required />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email Address *</Label>
+                    <Input id="email" type="email" placeholder="your.email@company.com" required />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Phone Number</Label>
+                    <Input id="phone" type="tel" placeholder="+1 (555) 123-4567" />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="company">Company Name</Label>
+                  <Input id="company" type="text" placeholder="Your company name" />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="subject">Project Type *</Label>
+                  <select
+                    id="subject"
+                    className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                    required
+                  >
+                    <option value="">Select project type</option>
+                    <option value="cad-design">Product Design & CAD</option>
+                    <option value="erd">E-R&D Services</option>
+                    <option value="prototyping">Prototyping</option>
+                    <option value="simulation">CAE Simulation</option>
+                    <option value="testing">Testing & Validation</option>
+                    <option value="process-design">Process Design</option>
+                    <option value="sourcing">Strategic Sourcing</option>
+                    <option value="manufacturing">Contract Manufacturing</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">Project Description *</Label>
+                  <textarea
+                    id="message"
+                    rows={6}
+                    className="flex min-h-[60px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                    placeholder="Please describe your project requirements, timeline, and any specific challenges you're facing..."
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="timeline">Project Timeline</Label>
+                  <select
+                    id="timeline"
+                    className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    <option value="">Select timeline</option>
+                    <option value="urgent">Urgent (1-2 weeks)</option>
+                    <option value="fast">Fast Track (1-2 months)</option>
+                    <option value="standard">Standard (3-6 months)</option>
+                    <option value="extended">Extended (6+ months)</option>
+                    <option value="flexible">Flexible timeline</option>
+                  </select>
+                </div>
+
+                <Button type="submit" className="w-full" size="lg">
+                  Send Message
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+
+                <p className="text-xs text-muted-foreground text-center">
+                  * Required fields. We'll respond within 24 hours.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Additional Information */}
+          <div className="space-y-8">
+            {/* Office Hours */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Clock className="h-5 w-5 text-primary" />
+                  Office Hours
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {officeHours.map((schedule, index) => (
+                  <div
+                    key={index}
+                    className="flex justify-between items-center py-2 border-b border-border/40 last:border-0"
+                  >
+                    <span className="font-medium text-foreground">{schedule.day}</span>
+                    <span className="text-muted-foreground">{schedule.hours}</span>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+
+            {/* Service Areas */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-primary" />
+                  Our Expertise
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 gap-3">
+                  {serviceAreas.map((service, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                      <span className="text-sm text-muted-foreground">{service}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Quick Stats */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Users className="h-5 w-5 text-primary" />
+                  Why Choose Us?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary mb-1">500+</div>
+                    <div className="text-xs text-muted-foreground">Projects Completed</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary mb-1">10+</div>
+                    <div className="text-xs text-muted-foreground">Years Experience</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary mb-1">99%</div>
+                    <div className="text-xs text-muted-foreground">Success Rate</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary mb-1">24h</div>
+                    <div className="text-xs text-muted-foreground">Response Time</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
