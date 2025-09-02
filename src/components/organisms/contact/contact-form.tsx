@@ -14,8 +14,8 @@ import { SectionHeading } from '@/components/ui/section-heading';
  */
 export function ContactForm() {
   const officeHours = [
-    { day: 'Monday - Friday', hours: '8:00 AM - 6:00 PM EST' },
-    { day: 'Saturday', hours: '9:00 AM - 2:00 PM EST' },
+    { day: 'Monday - Friday', hours: '8:00 AM - 6:00 PM IST' },
+    { day: 'Saturday', hours: '9:00 AM - 2:00 PM IST' },
     { day: 'Sunday', hours: 'Closed' },
     { day: 'Emergency Support', hours: '24/7 Available' },
   ];
@@ -85,7 +85,7 @@ export function ContactForm() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" type="tel" placeholder="+1 (555) 123-4567" />
+                    <Input id="phone" type="tel" placeholder="+91-9765210570" />
                   </div>
                 </div>
 
@@ -206,7 +206,7 @@ export function ContactForm() {
               <CardContent>
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-primary mb-1">500+</div>
+                    <div className="text-2xl font-bold text-primary mb-1">50+</div>
                     <div className="text-xs text-muted-foreground">Projects Completed</div>
                   </div>
                   <div className="text-center">

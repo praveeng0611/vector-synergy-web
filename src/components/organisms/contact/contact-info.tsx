@@ -14,8 +14,8 @@ export function ContactInfo() {
     {
       icon: Phone,
       title: 'Phone',
-      details: '+1 (555) VECTOR',
-      link: 'tel:+1-555-VECTOR',
+      details: '+91 (9765210570)',
+      link: 'tel:+91-9765210570',
       description: 'Call us for immediate assistance',
     },
     {

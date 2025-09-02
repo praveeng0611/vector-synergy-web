@@ -6,10 +6,10 @@ import React from 'react';
  */
 export function Stats() {
   const stats = [
-    { value: '500+', label: 'Projects Completed' },
-    { value: '50+', label: 'Industry Partners' },
+    { value: '50+', label: 'Projects Completed' },
+    { value: '20+', label: 'Industry Partners' },
     { value: '99%', label: 'Success Rate' },
-    { value: '10+', label: 'Years Experience' },
+    { value: '20+', label: 'Years Experience' },
   ];
 
   return (

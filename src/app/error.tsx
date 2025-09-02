@@ -15,7 +15,7 @@ export default function Error({ error, reset }: ErrorProps) {
   useEffect(() => {
     // Log the error to monitoring service
     console.error('Application Error:', error);
-    
+
     // Report error to Sentry with additional context
     import('@/lib/sentry').then(({ captureException }) => {
       captureException(error, {
@@ -46,15 +46,15 @@ export default function Error({ error, reset }: ErrorProps) {
               Something went wrong
             </CardTitle>
           </CardHeader>
-          
+
           <CardContent className="space-y-6">
             <div className="text-center space-y-4">
               <p className="text-muted-foreground leading-7">
-                We apologize for the inconvenience. An unexpected error has occurred while 
-                processing your request. Our engineering team has been notified and is 
+                We apologize for the inconvenience. An unexpected error has occurred while
+                processing your request. Our engineering team has been notified and is
                 working to resolve the issue.
               </p>
-              
+
               {process.env.NODE_ENV === 'development' && (
                 <div className="mt-4 p-4 bg-muted rounded-lg text-left">
                   <p className="text-sm font-medium text-foreground mb-2">
@@ -71,7 +71,7 @@ export default function Error({ error, reset }: ErrorProps) {
                 </div>
               )}
             </div>
-            
+
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Button onClick={reset} className="w-full">
                 <RefreshCw className="mr-2 h-4 w-4" />
@@ -84,7 +84,7 @@ export default function Error({ error, reset }: ErrorProps) {
                 </Link>
               </Button>
             </div>
-            
+
             <div className="pt-6 border-t border-border/40">
               <div className="text-center space-y-4">
                 <h3 className="font-semibold text-foreground">
@@ -92,9 +92,9 @@ export default function Error({ error, reset }: ErrorProps) {
                 </h3>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Button asChild variant="ghost" size="sm">
-                    <Link href="tel:+1-555-VECTOR">
+                    <Link href="tel:+91-9765210570">
                       <Phone className="mr-2 h-4 w-4" />
-                      +1 (555) VECTOR
+                      +91 9765210570
                     </Link>
                   </Button>
                   <Button asChild variant="ghost" size="sm">
@@ -106,7 +106,7 @@ export default function Error({ error, reset }: ErrorProps) {
                 </div>
               </div>
             </div>
-            
+
             <div className="pt-4 border-t border-border/40">
               <div className="text-center">
                 <p className="text-sm text-muted-foreground mb-3">
@@ -140,7 +140,7 @@ export default function Error({ error, reset }: ErrorProps) {
                 </div>
               </div>
             </div>
-            
+
             <div className="text-center pt-4">
               <p className="text-xs text-muted-foreground">
                 Vector Synergy - Engineering Innovation. Delivered.
@@ -151,4 +151,4 @@ export default function Error({ error, reset }: ErrorProps) {
       </div>
     </div>
   );
-} 
+}

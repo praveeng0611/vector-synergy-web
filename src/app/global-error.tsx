@@ -15,7 +15,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
   useEffect(() => {
     // Log the error to monitoring service
     console.error('Global Application Error:', error);
-    
+
     // Report error to Sentry with additional context
     import('@/lib/sentry').then(({ captureException }) => {
       captureException(error, {
@@ -50,14 +50,14 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
                   Application Error
                 </CardTitle>
               </CardHeader>
-              
+
               <CardContent className="space-y-6">
                 <div className="text-center space-y-4">
                   <p className="text-muted-foreground leading-7">
-                    A critical error has occurred that prevented the application from loading properly. 
+                    A critical error has occurred that prevented the application from loading properly.
                     Our engineering team has been automatically notified and is working to resolve the issue.
                   </p>
-                  
+
                   {process.env.NODE_ENV === 'development' && (
                     <div className="mt-4 p-4 bg-muted rounded-lg text-left">
                       <p className="text-sm font-medium text-foreground mb-2">
@@ -74,7 +74,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
                     </div>
                   )}
                 </div>
-                
+
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <Button onClick={() => {
                     // Clear any cached data and reset
@@ -94,7 +94,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
                     </Link>
                   </Button>
                 </div>
-                
+
                 <div className="pt-6 border-t border-border/40">
                   <div className="text-center space-y-4">
                     <h3 className="font-semibold text-foreground">
@@ -104,7 +104,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
                       <Button asChild variant="ghost" size="sm">
                         <Link href="tel:+1-555-VECTOR">
                           <Phone className="mr-2 h-4 w-4" />
-                          Emergency: +1 (555) VECTOR
+                          Emergency: +91 (9765210570)
                         </Link>
                       </Button>
                       <Button asChild variant="ghost" size="sm">
@@ -116,7 +116,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="text-center pt-4">
                   <p className="text-xs text-muted-foreground">
                     Vector Synergy - Engineering Innovation. Delivered.<br />
@@ -130,4 +130,4 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
       </body>
     </html>
   );
-} 
+}

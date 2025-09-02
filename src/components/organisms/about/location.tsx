@@ -31,11 +31,13 @@ export function Location() {
                 <div>
                   <h3 className="font-semibold text-foreground">Address</h3>
                   <p className="text-muted-foreground">
-                    Engineering Excellence Center
+                    K P Square, Off/609 Sr No, 127/1a,
                     <br />
-                    Vector Synergy Headquarters
+                    Opp. Double Tree, Chinchwad East,
                     <br />
-                    Innovation District, Tech City
+                    Pune, Pune City, Maharashtra,
+                    <br />
+                    India, 411019
                   </p>
                 </div>
               </div>

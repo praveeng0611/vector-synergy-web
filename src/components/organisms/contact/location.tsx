@@ -28,13 +28,13 @@ export function Location() {
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Address</h3>
                   <p className="text-muted-foreground">
-                    Vector Synergy Headquarters
+                    K P Square, Off/609 Sr No, 127/1a,
                     <br />
-                    Engineering Excellence Center
+                    Opp. Double Tree, Chinchwad East,
                     <br />
-                    Innovation District, Tech City
+                    Pune, Pune City, Maharashtra,
                     <br />
-                    TC 12345, United States
+                    India, 411019
                   </p>
                 </div>
               </div>
@@ -64,7 +64,7 @@ export function Location() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild>
-                <Link href="https://maps.google.com" target="_blank" rel="noopener noreferrer">
+                <Link href="https://maps.app.goo.gl/N56Guzx5J91WKHrJ8" target="_blank" rel="noopener noreferrer">
                   <MapPin className="mr-2 h-4 w-4" />
                   Get Directions
                 </Link>
@@ -79,7 +79,7 @@ export function Location() {
           <div className="relative">
             <div className="aspect-square bg-muted rounded-2xl flex items-center justify-center">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14010.760057309692!2d77.22260516602375!3d28.609074898776004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2daa9eb4d0b%3A0x717971125923e5d!2sIndia%20Gate!5e0!3m2!1sen!2sin!4v1753987011380!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.4648953706815!2d73.79558677519469!3d18.64312298247439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9cf1bf5a6c7%3A0xf733d14451e428f8!2sKP%20Square!5e0!3m2!1sen!2sin!4v1756826665090!5m2!1sen!2sin"
                 width="600"
                 height="450"
                 style={{ border: 0 }}

@@ -13,7 +13,7 @@ export function MissionVision() {
     {
       icon: Target,
       title: 'Mission',
-      description: 'To accelerate innovation through comprehensive engineering solutions that bridge the gap between concept and reality, empowering businesses to achieve breakthrough results.',
+      description: 'Our mission at Vector Synergy is to deliver innovative, reliable, and sustainable engineering solutions that drive progress across industries. We aim to be a trusted partner in transforming ideas into reality by leveraging deep technical expertise, advanced tools, and a collaborative approach.',
     },
     {
       icon: Award,
@@ -22,8 +22,8 @@ export function MissionVision() {
     },
     {
       icon: Users,
-      title: 'Purpose',
-      description: 'To create meaningful impact through engineering excellence, fostering innovation that improves lives, advances industries, and shapes a better future for all.',
+      title: 'Our Purpose',
+      description: 'At Vector Synergy, our purpose is to empower innovation through world-class engineering design and development solutions. We are committed to delivering the entire product lifecycle—from concept to commercialization—by integrating cutting-edge technologies, sustainable practices, and multidisciplinary expertise',
     },
   ];
 

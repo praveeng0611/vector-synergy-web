@@ -105,7 +105,7 @@ try {
       formData: sanitizedFormData,
     },
   });
-  
+
   // Handle the error gracefully
   showErrorMessage('Something went wrong. Please try again.');
 }
@@ -238,8 +238,8 @@ The configuration automatically tracks releases using:
 For technical issues with this setup:
 - **Development Team**: dev@vector-synergy.com
 - **Sentry Documentation**: https://docs.sentry.io/platforms/javascript/guides/nextjs/
-- **Emergency Support**: Call +1 (555) VECTOR
+- **Emergency Support**: Call +91 9765210570
 
 ---
 
-**Vector Synergy - Engineering Innovation. Delivered.** 
+**Vector Synergy - Engineering Innovation. Delivered.**

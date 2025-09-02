@@ -11,37 +11,37 @@ import { SectionHeading } from '@/components/ui/section-heading';
 export function Timeline() {
   const milestones = [
     {
-      year: '2013',
+      year: '2025',
       title: 'Company Founded',
       description:
         'Vector Synergy was established with a vision to revolutionize engineering solutions and bridge the gap between innovation and implementation.',
     },
     {
-      year: '2015',
+      year: '2025',
       title: 'First Major Contract',
       description:
         'Secured our first major automotive simulation project, establishing our reputation in the CAE simulation industry.',
     },
     {
-      year: '2018',
+      year: '2025',
       title: 'Expansion into Aerospace',
       description:
         'Expanded our services to include aerospace prototyping and testing, working with leading aviation companies.',
     },
     {
-      year: '2020',
+      year: '2025',
       title: 'Digital Transformation',
       description:
         'Implemented cutting-edge digital workflows and remote collaboration tools, enabling seamless global project delivery.',
     },
     {
-      year: '2022',
-      title: '500+ Projects Milestone',
+      year: '2025',
+      title: '50+ Projects Milestone',
       description:
         'Celebrated the successful completion of over 500 engineering projects across diverse industries and applications.',
     },
     {
-      year: '2024',
+      year: '2025',
       title: 'Innovation Hub Launch',
       description:
         'Opened our state-of-the-art Engineering Excellence Center, featuring advanced prototyping and testing facilities.',

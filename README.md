@@ -352,7 +352,7 @@ See [SENTRY_SETUP.md](./SENTRY_SETUP.md) for detailed configuration.
 ### **Vector Synergy**
 - **Website:** [https://vector-synergy.com](https://vector-synergy.com)
 - **Email:** info@vector-synergy.com
-- **Phone:** +1 (555) VECTOR
+- **Phone:** +91 (9765210570) VECTOR
 - **LinkedIn:** [/company/vector-synergy](https://linkedin.com/company/vector-synergy)
 
 ### **Technical Support**

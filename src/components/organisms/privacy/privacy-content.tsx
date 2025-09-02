@@ -98,7 +98,7 @@ export function PrivacyContent() {
   return (
     <section className="py-16 sm:py-24">
       <div className="mx-auto max-w-4xl px-6 lg:px-8">
-        
+
         {/* Privacy Policy List */}
         <div className="space-y-12">
           {privacyData.map((section, index) => (
@@ -127,18 +127,18 @@ export function PrivacyContent() {
               If you have any questions about this Privacy Policy or our data practices, please contact us:
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm">
-              <a 
-                href="mailto:privacy@vector-synergy.com" 
+              <a
+                href="mailto:privacy@vector-synergy.com"
                 className="text-primary hover:text-primary/80 transition-colors"
               >
                 privacy@vector-synergy.com
               </a>
               <span className="hidden sm:inline text-muted-foreground">•</span>
-              <a 
-                href="tel:+1-555-VECTOR" 
+              <a
+                href="tel:+1-555-VECTOR"
                 className="text-primary hover:text-primary/80 transition-colors"
               >
-                +1 (555) VECTOR
+                91-9765210570
               </a>
             </div>
             <p className="text-sm text-muted-foreground mt-4">

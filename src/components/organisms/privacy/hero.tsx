@@ -22,7 +22,7 @@ export function Hero() {
           </p>
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground pt-4">
             <Calendar className="h-4 w-4" />
-            <span>Last updated: January 2024</span>
+            <span>Last updated: Aug 2025</span>
           </div>
         </div>
       </div>

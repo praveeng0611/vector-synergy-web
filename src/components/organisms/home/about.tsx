@@ -40,7 +40,7 @@ export function About() {
               <SectionHeading
                 subtitle="About Vector Synergy"
                 title="Your Trusted Engineering Partner"
-                description="With over a decade of engineering excellence, we transform complex challenges into innovative solutions."
+                description="With managment experience of over a decade of engineering excellence, we transform complex challenges into innovative solutions."
                 centered={false}
                 textColor="text-white"
               />
@@ -52,8 +52,7 @@ export function About() {
                 <div>
                   <h3 className="font-semibold text-white">Mission</h3>
                   <p className="text-white/80">
-                    To accelerate innovation through comprehensive engineering solutions that
-                    bridge the gap between concept and reality.
+                    Our mission at Vector Synergy is to deliver innovative, reliable, and sustainable engineering solutions that drive progress across industries. We aim to be a trusted partner in transforming ideas into reality by leveraging deep technical expertise, advanced tools, and a collaborative approach.
                   </p>
                 </div>
               </div>
@@ -63,8 +62,7 @@ export function About() {
                 <div>
                   <h3 className="font-semibold text-white">Vision</h3>
                   <p className="text-white/80">
-                    To be the leading partner for engineering innovation, empowering businesses to
-                    achieve breakthrough results.
+                    To be a global leader in engineering innovation, shaping the future through transformative design, sustainable development, and integrated technology solutions. We envision a world where engineering excellence drives progress, enhances quality of life, and fosters a smarter, safer, and more sustainable planet.
                   </p>
                 </div>
               </div>

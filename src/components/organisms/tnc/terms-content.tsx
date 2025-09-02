@@ -91,7 +91,7 @@ export function TermsContent() {
   return (
     <section className="py-16 sm:py-24">
       <div className="mx-auto max-w-4xl px-6 lg:px-8">
-        
+
         {/* Terms List */}
         <div className="space-y-12">
           {termsData.map((section, index) => (
@@ -120,18 +120,18 @@ export function TermsContent() {
               If you have any questions about these Terms and Conditions, please contact us:
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm">
-              <a 
-                href="mailto:legal@vector-synergy.com" 
+              <a
+                href="mailto:legal@vector-synergy.com"
                 className="text-primary hover:text-primary/80 transition-colors"
               >
                 legal@vector-synergy.com
               </a>
               <span className="hidden sm:inline text-muted-foreground">•</span>
-              <a 
-                href="tel:+1-555-VECTOR" 
+              <a
+                href="tel:+91-9765210570"
                 className="text-primary hover:text-primary/80 transition-colors"
               >
-                +1 (555) VECTOR
+                +91-9765210570
               </a>
             </div>
           </div>

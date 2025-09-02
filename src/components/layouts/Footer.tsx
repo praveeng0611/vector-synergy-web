@@ -256,8 +256,8 @@ export function Footer(): ReactElement {
               <span className='hidden md:block'>.</span>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4" />
-                <a href="tel:+1-555-VECTOR" className="hover:text-foreground transition-colors">
-                  +1 (555) VECTOR
+                <a href="tel:+91-9765210570" className="hover:text-foreground transition-colors">
+                  +91 9765210570
                 </a>
               </div>
               <span className='hidden md:block'>.</span>

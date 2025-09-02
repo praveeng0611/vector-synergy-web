@@ -53,7 +53,7 @@ export function CTA() {
                   size="lg"
                   className="hover-scale transition-all duration-200"
                 >
-                  <Link href="tel:+1-555-VECTOR">Call +1 (555) VECTOR</Link>
+                  <Link href="tel:+91-9765210570">Call +91 9765210570</Link>
                 </Button>
               </div>
             </div>

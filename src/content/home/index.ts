@@ -107,7 +107,7 @@ export const projects = [
 
 export const stats = [
   { number: '10+', label: 'Years Experience' },
-  { number: '500+', label: 'Projects Completed' },
+  { number: '50+', label: 'Projects Completed' },
   { number: '50+', label: 'Satisfied Clients' },
   { number: '99%', label: 'Success Rate' },
 ];
