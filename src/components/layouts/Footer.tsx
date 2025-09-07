@@ -6,6 +6,8 @@ import { Linkedin, Facebook, Youtube, Mail, Phone, MapPin, Send, Check, Loader2 
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { ReactElement, useState } from 'react';
+import toast from 'react-hot-toast';
+import { customToast } from '@/lib/toast';
 
 /**
  * Footer component
@@ -14,25 +16,25 @@ import React, { ReactElement, useState } from 'react';
 export function Footer(): ReactElement {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [message, setMessage] = useState('');
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!email) {
-      setStatus('error');
-      setMessage('Please enter your email address');
+      customToast.error('Please enter your email address');
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      setStatus('error');
-      setMessage('Please enter a valid email address');
+      customToast.error('Please enter a valid email address');
       return;
     }
 
     setStatus('loading');
+    
+    // Show loading toast
+    const loadingToast = customToast.loading('Subscribing to newsletter...');
 
     try {
       const response = await fetch('/api/newsletter', {
@@ -47,30 +49,26 @@ export function Footer(): ReactElement {
 
       if (response.ok && result.success) {
         setStatus('success');
-        setMessage(result.message);
+        toast.dismiss(loadingToast);
+        customToast.success(result.message || '🎉 Successfully subscribed! Check your email for confirmation.');
         setEmail('');
       } else {
         setStatus('error');
-        setMessage(result.error || 'Failed to subscribe. Please try again.');
+        toast.dismiss(loadingToast);
+        customToast.error(result.error || 'Failed to subscribe. Please try again.');
       }
-
-      // Reset status after 4 seconds
-      setTimeout(() => {
-        setStatus('idle');
-        setMessage('');
-      }, 4000);
       
     } catch (error) {
       console.error('Newsletter subscription error:', error);
       setStatus('error');
-      setMessage('Network error. Please check your connection and try again.');
-
-      // Reset error message after 4 seconds
-      setTimeout(() => {
-        setStatus('idle');
-        setMessage('');
-      }, 4000);
+      toast.dismiss(loadingToast);
+      customToast.error('Network error. Please check your connection and try again.');
     }
+
+    // Reset status after 3 seconds
+    setTimeout(() => {
+      setStatus('idle');
+    }, 3000);
   };
 
   const footerNavigation = {
@@ -225,28 +223,10 @@ export function Footer(): ReactElement {
                         `}
                       >
                         {status === 'loading' && <Loader2 className="h-4 w-4 animate-spin" />}
-                        {status === 'success' && <Check className="h-4 w-4" />}
-                        {status === 'idle' || status === 'error' ? (
-                          <Send className="h-4 w-4" />
-                        ) : null}
-                        {status === 'loading'
-                          ? 'Subscribing...'
-                          : status === 'success'
-                            ? 'Subscribed!'
-                            : 'Subscribe'}
+                        {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
+                        {status === 'idle' && <Send className="h-4 w-4" />}
                       </button>
                     </form>
-
-                    {message && (
-                      <p
-                        className={`
-                        text-xs transition-all duration-300 animate-in fade-in slide-in-from-top-1
-                        ${status === 'success' ? 'text-primary' : 'text-destructive'}
-                      `}
-                      >
-                        {message}
-                      </p>
-                    )}
 
                     <p className="text-xs text-muted-foreground">
                       We respect your privacy. Unsubscribe at any time.

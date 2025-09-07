@@ -2,6 +2,8 @@
 
 import { Send, Clock, CheckCircle, Users, ArrowRight, Loader2 } from 'lucide-react';
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import { customToast } from '@/lib/toast';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -27,7 +29,6 @@ export function ContactForm() {
   });
   
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [statusMessage, setStatusMessage] = useState('');
 
   // Handle form input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -44,21 +45,21 @@ export function ContactForm() {
     
     // Validate required fields
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.projectType || !formData.message) {
-      setStatus('error');
-      setStatusMessage('Please fill in all required fields');
+      customToast.error('Please fill in all required fields');
       return;
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      setStatus('error');
-      setStatusMessage('Please enter a valid email address');
+      customToast.error('Please enter a valid email address');
       return;
     }
 
     setStatus('loading');
-    setStatusMessage('');
+    
+    // Show loading toast
+    const loadingToast = customToast.loading('Sending your message...');
 
     try {
       const response = await fetch('/api/contact', {
@@ -73,7 +74,10 @@ export function ContactForm() {
 
       if (response.ok && result.success) {
         setStatus('success');
-        setStatusMessage(result.message);
+        // Dismiss loading toast and show success
+        toast.dismiss(loadingToast);
+        customToast.success(result.message || '✨ Message sent successfully! We\'ll respond within 24 hours.');
+        
         // Reset form
         setFormData({
           firstName: '',
@@ -87,19 +91,20 @@ export function ContactForm() {
         });
       } else {
         setStatus('error');
-        setStatusMessage(result.error || 'Failed to send message. Please try again.');
+        toast.dismiss(loadingToast);
+        customToast.error(result.error || 'Failed to send message. Please try again.');
       }
     } catch (error) {
       console.error('Form submission error:', error);
       setStatus('error');
-      setStatusMessage('Network error. Please check your connection and try again.');
+      toast.dismiss(loadingToast);
+      customToast.error('Network error. Please check your connection and try again.');
     }
 
-    // Reset status after 5 seconds
+    // Reset status after 3 seconds
     setTimeout(() => {
       setStatus('idle');
-      setStatusMessage('');
-    }, 5000);
+    }, 3000);
   };
 
   const officeHours = [
@@ -279,31 +284,9 @@ export function ContactForm() {
                   disabled={status === 'loading'}
                 >
                   {status === 'loading' && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
-                  {status === 'success' && <CheckCircle className="mr-2 h-5 w-5" />}
-                  {status === 'loading' 
-                    ? 'Sending...' 
-                    : status === 'success' 
-                      ? 'Message Sent!' 
-                      : 'Send Message'
-                  }
+                  {status === 'loading' ? 'Sending...' : 'Send Message'}
                   {status === 'idle' && <ArrowRight className="ml-2 h-5 w-5" />}
                 </Button>
-
-                {statusMessage && (
-                  <div 
-                    className={`
-                      text-sm text-center p-3 rounded-md
-                      ${status === 'success' 
-                        ? 'bg-green-50 text-green-700 border border-green-200' 
-                        : status === 'error' 
-                          ? 'bg-red-50 text-red-700 border border-red-200'
-                          : ''
-                      }
-                    `}
-                  >
-                    {statusMessage}
-                  </div>
-                )}
 
                 <p className="text-xs text-muted-foreground text-center">
                   * Required fields. We'll respond within 24 hours.
