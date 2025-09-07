@@ -35,28 +35,41 @@ export function Footer(): ReactElement {
     setStatus('loading');
 
     try {
-      // Simulate API call - replace with actual newsletter subscription logic
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
 
-      setStatus('success');
-      setMessage('Thank you for subscribing!');
-      setEmail('');
+      const result = await response.json();
 
-      // Reset success message after 3 seconds
+      if (response.ok && result.success) {
+        setStatus('success');
+        setMessage(result.message);
+        setEmail('');
+      } else {
+        setStatus('error');
+        setMessage(result.error || 'Failed to subscribe. Please try again.');
+      }
+
+      // Reset status after 4 seconds
       setTimeout(() => {
         setStatus('idle');
         setMessage('');
-      }, 3000);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      }, 4000);
+      
     } catch (error) {
+      console.error('Newsletter subscription error:', error);
       setStatus('error');
-      setMessage('Something went wrong. Please try again.');
+      setMessage('Network error. Please check your connection and try again.');
 
-      // Reset error message after 3 seconds
+      // Reset error message after 4 seconds
       setTimeout(() => {
         setStatus('idle');
         setMessage('');
-      }, 3000);
+      }, 4000);
     }
   };
 
