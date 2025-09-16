@@ -367,4 +367,3 @@ This project is proprietary and confidential. All rights reserved by Vector Syne
 ---
 
 **Vector Synergy - Engineering Innovation. Delivered.** 🚀
-
