@@ -10,8 +10,6 @@ import { usePathname } from 'next/navigation';
 import React, { ReactElement, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
-
-import { AnimatedLogo } from '@/components/ui/animated-logo';
 import { cn } from '@/lib/utils';
 
 /**
@@ -33,7 +31,12 @@ export function Header(): ReactElement {
   const isActive = (href: string) => pathname === href;
 
   return (
-    <header className={cn("sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border transition-all duration-300", mobileMenuOpen ? "h-dvh" : "h-[94px] md:h-auto")}>
+    <header
+      className={cn(
+        'sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border transition-all duration-300',
+        mobileMenuOpen ? 'h-dvh' : 'h-[94px] md:h-auto'
+      )}
+    >
       <nav
         className="mx-auto h-full flex max-w-7xl items-center justify-between px-6 lg:px-8 py-1"
         aria-label="Global"
@@ -42,13 +45,12 @@ export function Header(): ReactElement {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Vector Synergy</span>
-            <AnimatedLogo
+            <Image
               className="lg:w-[80px] lg:h-[80px]"
-              width={80}
-              height={80}
-              onLoad={true}
-              onScroll={true}
-              onHover={true}
+              src="/logo-full.svg"
+              alt="Vector Synergy"
+              width={120}
+              height={120}
             />
           </Link>
         </div>
