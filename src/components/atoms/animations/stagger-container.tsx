@@ -1,7 +1,7 @@
 'use client';
 
 import React, { forwardRef } from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'motion/react';
 import { cn } from '@/lib/utils';
 
 interface StaggerContainerProps extends HTMLMotionProps<'div'> {

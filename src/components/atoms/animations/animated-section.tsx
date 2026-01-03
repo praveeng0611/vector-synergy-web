@@ -1,7 +1,7 @@
 'use client';
 
 import React, { forwardRef } from 'react';
-import { motion, MotionProps, HTMLMotionProps } from 'framer-motion';
+import { motion, MotionProps, HTMLMotionProps } from 'motion/react';
 import { cn } from '@/lib/utils';
 
 interface AnimatedSectionProps extends HTMLMotionProps<'section'> {

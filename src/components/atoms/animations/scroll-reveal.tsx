@@ -1,7 +1,7 @@
 'use client';
 
 import React, { forwardRef } from 'react';
-import { motion, useScroll, useTransform, HTMLMotionProps } from 'framer-motion';
+import { motion, useScroll, useTransform, HTMLMotionProps } from 'motion/react';
 import { cn } from '@/lib/utils';
 
 interface ScrollRevealProps extends HTMLMotionProps<'div'> {
