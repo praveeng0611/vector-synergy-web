@@ -356,8 +356,7 @@ See [SENTRY_SETUP.md](./SENTRY_SETUP.md) for detailed configuration.
 - **LinkedIn:** [/company/vector-synergy](https://linkedin.com/company/vector-synergy)
 
 ### **Technical Support**
-- **Development Team:** dev@vector-synergy.com
-- **Emergency Support:** emergency@vector-synergy.com
+- **Support Team:** support@vector-synergy.com
 - **Documentation:** [Vector Synergy Docs](https://docs.vector-synergy.com)
 
 ## 📄 **License**

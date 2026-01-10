@@ -128,10 +128,10 @@ export function PrivacyContent() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm">
               <a
-                href="mailto:privacy@vector-synergy.com"
+                href="mailto:info@vector-synergy.com"
                 className="text-primary hover:text-primary/80 transition-colors"
               >
-                privacy@vector-synergy.com
+                info@vector-synergy.com
               </a>
               <span className="hidden sm:inline text-muted-foreground">•</span>
               <a

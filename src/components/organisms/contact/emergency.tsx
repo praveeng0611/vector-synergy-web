@@ -27,7 +27,7 @@ export function Emergency() {
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="mailto:emergency@vector-synergy.com">
+              <Link href="mailto:support@vector-synergy.com">
                 <Mail className="mr-2 h-5 w-5" />
                 Emergency Email
               </Link>
