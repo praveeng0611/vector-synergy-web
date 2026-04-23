@@ -31,27 +31,27 @@ export function Hero() {
   // NOTE: All videos will autoplay when their slide comes into view
   const slideVideos = [
     {
-      src: "/video/my-video.mp4", // Future: "/video/engineering-innovation.mp4"
+      src: "/video/my-video.mp4",
       title: "Engineering Innovation",
       alt: "Engineering Innovation Video Background"
     },
     {
-      src: "/video/my-video.mp4", // Future: "/video/simulation.mp4"
+      src: "/video/manufacturing-hero.mp4",
+      title: "Manufacturing Excellence",
+      alt: "Precision gear mechanism — Manufacturing Excellence"
+    },
+    {
+      src: "/video/my-video.mp4",
       title: "CAE Simulation",
       alt: "CAE Simulation Video Background"
     },
     {
-      src: "/video/my-video.mp4", // Future: "/video/prototyping.mp4"
+      src: "/video/my-video.mp4",
       title: "Rapid Prototyping",
       alt: "Rapid Prototyping Video Background"
     },
     {
-      src: "/video/my-video.mp4", // Future: "/video/manufacturing.mp4"
-      title: "Manufacturing Excellence",
-      alt: "Manufacturing Excellence Video Background"
-    },
-    {
-      src: "/video/my-video.mp4", // Future: "/video/rnd-innovation.mp4"
+      src: "/video/my-video.mp4",
       title: "R&D Innovation",
       alt: "R&D Innovation Video Background"
     }
