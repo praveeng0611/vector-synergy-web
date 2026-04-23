@@ -17,19 +17,21 @@ import {
 import { type CarouselApi } from '@/components/ui/carousel';
 import { cn } from '@/lib/utils';
 
-// ─── Slide data ───────────────────────────────────────────────────────────────
-// hero-synergy.mp4/.webm  = customer video, compressed 4K→1080p/30fps
-//   MP4  2.6 MB  (H.264, -faststart, plays on all browsers)
-//   WebM 1.7 MB  (VP9,  picked first by Chrome/Firefox/Edge)
-// manufacturing-hero.mp4  = precision gear footage  1.7 MB
+// ─── Slide data ────────────────────────────────────────────────────────────────
+// Each slide has a unique video matched to its engineering theme.
 //
-// Slides 1, 3–5 use the new hero-synergy video.
-// Slide 2 keeps the existing manufacturing video for visual variety.
+// File             | Original         | Compressed  | Source
+// my-video.mp4     | existing asset   | 7.4 MB      | (original hero video)
+// hero-synergy.mp4 | 4K/50fps 19.8MB  | 2.6 MB H.264 + 1.7 MB WebM
+// manufacturing-hero.mp4 | 1.7 MB    | gear/precision footage
+// metal-rolling.mp4| ProRes 4K 254MB  | 741 KB      | hot rolling plant
+// ampoules-vials.mp4| H.264 1080p 16.8MB | 5.2 MB   | pharma/precision vials
 
 const slides = [
   {
-    mp4:   '/video/hero-synergy.mp4',
-    webm:  '/video/hero-synergy.webm',
+    // Slide 1 — "Engineering Innovation" — original hero video (restored)
+    mp4:   '/video/my-video.mp4',
+    webm:  null,
     badge: 'Trusted Engineering Partner',
     heading: (
       <>
@@ -40,12 +42,13 @@ const slides = [
       </>
     ),
     body: 'We deliver comprehensive engineering solutions from concept to production. Our expertise spans product design, simulation, prototyping, and manufacturing to accelerate your innovation journey.',
-    cta1: { label: 'Get Started',       href: '/contact' },
-    cta2: { label: 'Explore Services',  href: '/services' },
+    cta1: { label: 'Get Started',      href: '/contact' },
+    cta2: { label: 'Explore Services', href: '/services' },
   },
   {
+    // Slide 2 — "CAE Simulation" — precision gear footage
     mp4:   '/video/manufacturing-hero.mp4',
-    webm:  '/video/manufacturing-hero.mp4', // no WebM for this clip — browser falls back to MP4
+    webm:  null,
     badge: 'Advanced CAE Simulation',
     heading: (
       <>
@@ -61,6 +64,43 @@ const slides = [
     cta2: { label: 'View Projects', href: '/projects' },
   },
   {
+    // Slide 3 — "Manufacturing Excellence" — hot metal rolling plant
+    mp4:   '/video/metal-rolling.mp4',
+    webm:  null,
+    badge: 'Manufacturing Excellence',
+    heading: (
+      <>
+        Precision{' '}
+        <span className="text-transparent bg-clip-text bg-gradient-to-br from-primary to-sky-400">
+          Manufacturing.
+        </span>{' '}
+        Guaranteed.
+      </>
+    ),
+    body: 'Scale from prototype to production with confidence. Our contract manufacturing services — including hot-rolling, forming, and sheet-metal — ensure consistent quality and on-time delivery at any volume.',
+    cta1: { label: 'Explore Manufacturing', href: '/services#manufacturing' },
+    cta2: { label: 'Get Quote',             href: '/contact' },
+  },
+  {
+    // Slide 4 — "R&D Innovation" — pharmaceutical ampoules & vials (precision filling)
+    mp4:   '/video/ampoules-vials.mp4',
+    webm:  null,
+    badge: 'R&D Innovation Hub',
+    heading: (
+      <>
+        Tomorrow&apos;s{' '}
+        <span className="text-transparent bg-clip-text bg-gradient-to-br from-primary to-sky-400">
+          Innovations.
+        </span>{' '}
+        Today.
+      </>
+    ),
+    body: "Push the boundaries of what's possible with our engineering R&D services. From precision-filling systems to proof-of-concept development, we turn breakthrough ideas into production-ready reality.",
+    cta1: { label: 'Explore R&D',        href: '/services#erd' },
+    cta2: { label: 'Innovation Stories', href: '/projects' },
+  },
+  {
+    // Slide 5 — "Rapid Prototyping" — new customer hero-synergy video
     mp4:   '/video/hero-synergy.mp4',
     webm:  '/video/hero-synergy.webm',
     badge: 'Rapid Prototyping Excellence',
@@ -75,40 +115,6 @@ const slides = [
     body: 'Transform your ideas into tangible prototypes with precision and speed. Our advanced 3D printing, CNC machining, and fabrication capabilities bring your designs to life for testing and validation.',
     cta1: { label: 'Start Prototyping', href: '/services#prototyping' },
     cta2: { label: 'Our Process',       href: '/about' },
-  },
-  {
-    mp4:   '/video/hero-synergy.mp4',
-    webm:  '/video/hero-synergy.webm',
-    badge: 'Manufacturing Excellence',
-    heading: (
-      <>
-        Precision{' '}
-        <span className="text-transparent bg-clip-text bg-gradient-to-br from-primary to-sky-400">
-          Manufacturing.
-        </span>{' '}
-        Guaranteed.
-      </>
-    ),
-    body: 'Scale from prototype to production with confidence. Our contract manufacturing services ensure consistent quality, on-time delivery, and cost-effective production at any volume.',
-    cta1: { label: 'Explore Manufacturing', href: '/services#manufacturing' },
-    cta2: { label: 'Get Quote',             href: '/contact' },
-  },
-  {
-    mp4:   '/video/hero-synergy.mp4',
-    webm:  '/video/hero-synergy.webm',
-    badge: 'R&D Innovation Hub',
-    heading: (
-      <>
-        Tomorrow&apos;s{' '}
-        <span className="text-transparent bg-clip-text bg-gradient-to-br from-primary to-sky-400">
-          Innovations.
-        </span>{' '}
-        Today.
-      </>
-    ),
-    body: "Push the boundaries of what's possible with our engineering research and development services. From breakthrough technologies to proof-of-concept development, we turn visionary ideas into reality.",
-    cta1: { label: 'Explore R&D',        href: '/services#erd' },
-    cta2: { label: 'Innovation Stories', href: '/projects' },
   },
 ];
 
@@ -145,26 +151,26 @@ export function Hero() {
           {slides.map((slide, idx) => (
             <CarouselItem key={idx} className="p-0 w-full h-full relative flex items-center">
 
-              {/* ── Video background ──────────────────────────────────── */}
+              {/* ── Video background ─────────────────────────────────── */}
               <video
                 autoPlay
                 muted
                 loop
                 playsInline
-                // Eagerly load first slide only; defer the rest to save bandwidth
+                // Only eagerly load the first slide; defer the rest (LCP optimisation)
                 preload={idx === 0 ? 'auto' : 'none'}
                 className="absolute inset-0 w-full h-full object-cover z-0"
                 style={{ filter: 'brightness(0.65)' }}
               >
-                {/* WebM listed first — Chrome/Firefox/Edge pick it (smaller) */}
-                <source src={slide.webm} type="video/webm" />
-                <source src={slide.mp4}  type="video/mp4"  />
+                {/* Offer WebM where available — VP9 is ~30% smaller than H.264 */}
+                {slide.webm && <source src={slide.webm} type="video/webm" />}
+                <source src={slide.mp4} type="video/mp4" />
               </video>
 
-              {/* ── Overlay ───────────────────────────────────────────── */}
+              {/* ── Overlay ──────────────────────────────────────────── */}
               <div className="absolute inset-0 bg-black/45 z-10" />
 
-              {/* ── Content ───────────────────────────────────────────── */}
+              {/* ── Content ──────────────────────────────────────────── */}
               <div className="w-full h-full relative mx-auto max-w-4xl px-6 lg:px-8 flex items-center justify-center z-20">
                 <div className="text-center space-y-8">
                   <div className="space-y-6">
@@ -206,7 +212,7 @@ export function Hero() {
         <CarouselNext    className="rounded-sm absolute top-1/2 -translate-y-1/2 right-4 lg:right-8 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30 z-40" />
       </Carousel>
 
-      {/* ── Dot indicators ────────────────────────────────────────────── */}
+      {/* ── Dot indicators ───────────────────────────────────────────── */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex justify-center items-center gap-2 z-40">
         {Array.from({ length: count }).map((_, index) => (
           <span
